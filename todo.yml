@@ -1,5 +1,6 @@
 - name: todo project
   hosts: all
+  become: yes
   tasks:
     -name: install nginx
      apt:
