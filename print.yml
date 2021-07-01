@@ -1,0 +1,6 @@
+- name: Demo
+  hosts: all
+  tasks:
+    - name: This is Omkar
+      debug:
+        msg: Hello, This is Omkar..!!
