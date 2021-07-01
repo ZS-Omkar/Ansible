@@ -1,5 +1,5 @@
 - name: Demo
-  host: all
+  hosts: all
   tasks:
     - name: This is Omkar
       debug:
