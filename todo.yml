@@ -3,7 +3,7 @@
   become: yes
   tasks:
     -name: install nginx
-     apt:
+      apt:
        name: nginx
        update_cache: yes
        state: present
