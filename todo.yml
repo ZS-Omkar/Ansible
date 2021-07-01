@@ -1,8 +1,7 @@
-- name: todo project
+- name: Setup todo project
   hosts: all
-  become: yes
   tasks:
-    -name: install nginx
+    -name: nginx
      apt:
        name: nginx
        update_cache: yes
