@@ -42,11 +42,10 @@
         dest: /var/www/html/frontend
         remote_src: yes
 
-    - name: Copy file with owner and permissions
+    - name: Copy default config file to sites enabled
       copy:
         src: /var/www/html/frontend/default.config
         dest: /etc/nginx/sites-enabled/default.config
-        remote_src: yes
 
     - name: Start service
       systemd:
