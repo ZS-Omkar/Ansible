@@ -42,6 +42,12 @@
         dest: /var/www/html/vue
         remote_src: yes
 
+    - name: update config file
+      template:
+        src: default.config
+        dest: /etc/nginx/sites-enabled
+      notify: restart nginx
+
     - name: Start service
       systemd:
         name: nginx
