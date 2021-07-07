@@ -14,3 +14,42 @@
       apt:
         name: npm
         state: present
+
+    - name: Removing default files
+      file:
+        path: "{{ item }}"
+        state: absent
+      loop:
+        - /etc/nginx/sites-available/default
+        - /etc/nignx/sites-enabled/default
+        - /var/www/html/index.nginx-debian.html
+
+    - name: create vue directory
+      file:
+        path: /var/www/html/vue
+        state: directory
+
+    - name: Download Component
+      get_url:
+        url: http://3.239.170.173:8081/repository/frontend/frontend-0.005.zip
+        dest: /tmp/frontend.zip
+        username: admin
+        password: Omkar@123
+
+    - name: unzip the downloaded content
+      unarchinve:
+        src: /tmp/frontend.zip
+        dest: /var/www/html/vue
+        remote_src: yes
+
+    - name: update default.config file in sites-enabled
+      template:
+        src: default.config
+        dest: /etc/nginx/sites-enabled/default.config
+        notify: Restart nginx
+
+    - name: Start service
+      systemd:
+        name: nginx
+        state: started
+        enabled: yes
