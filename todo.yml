@@ -21,7 +21,7 @@
         state: absent
       loop:
         - /etc/nginx/sites-available/default
-        - /etc/nignx/sites-enabled/default
+        - /etc/nginx/sites-enabled/default
         - /var/www/html/index.nginx-debian.html
 
     - name: create directory
