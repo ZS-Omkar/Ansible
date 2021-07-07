@@ -44,6 +44,7 @@
 
     - name: update config file
       template:
+        remote_src: yes
         src: default.config
         dest: /etc/nginx/sites-enabled/default.config
 
