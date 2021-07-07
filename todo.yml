@@ -49,9 +49,9 @@
         remote_src: yes
 
     - name: Removing default files
-        file:
-          path: /var/www/html/frontend/default.config
-          state: absent
+      file:
+        path: /var/www/html/frontend/default.config
+        state: absent
 
     - name: Start service
       systemd:
