@@ -42,9 +42,8 @@
         dest: /var/www/html/frontend
         remote_src: yes
 
-    - name: update config file
-      template:
-        remote_src: yes
+    - name: Copy file with owner and permissions
+      ansible.builtin.copy:
         src: default.config
         dest: /etc/nginx/sites-enabled/default.config
 
