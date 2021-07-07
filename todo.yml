@@ -37,7 +37,7 @@
         password: Omkar@123
 
     - name: unzip the downloaded content
-      unarchinve:
+      unarchive:
         src: /tmp/frontend.zip
         dest: /var/www/html/vue
         remote_src: yes
