@@ -24,9 +24,14 @@
         - /etc/nginx/sites-enabled/default
         - /var/www/html/index.nginx-debian.html
 
-    - name: create directory
+    - name: create a vue directory
       file:
-        path: /var/www/html/frontend
+        path: /var/www/html/vue
+        state: directory
+
+    - name: create frontend directory
+      file:
+        path: /var/www/html/vue/frontend
         state: directory
 
     - name: Download Component
@@ -39,12 +44,12 @@
     - name: unzip the downloaded content
       unarchive:
         src: /tmp/frontend.zip
-        dest: /var/www/html/frontend
+        dest: /var/www/html/vue/frontend
         remote_src: yes
 
     - name: Copy default config file to sites enabled
       copy:
-        src: /var/www/html/frontend/default.config
+        src: /var/www/html/vue/frontend/default.config
         dest: /etc/nginx/sites-enabled/default.config
         remote_src: yes
 
