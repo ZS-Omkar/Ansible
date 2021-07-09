@@ -31,7 +31,7 @@
         path: /var/www/html/vue/frontend
         state: directory
 
-    - name: Download Component
+    - name: Download Artifacts from Nexus
       get_url:
         url: http://34.205.135.21:8081/repository/frontend/frontend-{{APP_VERSION}}.zip
         dest: /tmp/frontend.zip

@@ -1,0 +1,41 @@
+- name: Install openjdk
+  apt:
+    name: openjdk-8-jdk-headless
+    update_cache: yes
+    state: present
+- name: Install Maven
+  apt:
+    name: maven
+    state: present
+
+- name: Download Artifacts from Nexus
+  get_url:
+    url: http://34.205.135.21:8081/repository/users/users-{{APP_VERSION}}.zip
+    dest: /tmp/users.zip
+    username: admin
+    password: Omkar@123
+
+- name: Create a directory
+  file:
+    path: /root/users
+    state: directory
+
+- name: unzip the downloaded content
+  unarchive:
+    src: /tmp/users.zip
+    dest: /root/users
+    remote_src: yes
+
+- name: copy the service file
+  copy:
+    src: /root/users/users.service
+    dest: /etc/systemd/system/users.service
+    remote_src: yes
+
+- name: Start service
+  systemd:
+    name: users
+    daemon-reload: yes
+    state: started
+    enabled: yes
+

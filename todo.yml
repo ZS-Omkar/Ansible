@@ -4,3 +4,7 @@
     - role: frontend
       tags: frontend
       when: COMPONENT == "frontend"
+
+    - role: users
+      tags: users
+      when: COMPONENT == "users"
