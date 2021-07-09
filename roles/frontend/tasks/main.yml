@@ -45,8 +45,8 @@
         remote_src: yes
 
     - name: Copy default config file to sites enabled
-      copy:
-        src: /var/www/html/vue/frontend/default.config
+      template:
+        src: default.config
         dest: /etc/nginx/sites-enabled/default.config
         remote_src: yes
 
