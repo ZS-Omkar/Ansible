@@ -30,7 +30,6 @@
   template:
     src: "users.service"
     dest: /etc/systemd/system/users.service
-    remote_src: yes
 
 - name: Start service
   systemd:
