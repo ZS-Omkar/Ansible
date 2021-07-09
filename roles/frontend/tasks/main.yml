@@ -44,11 +44,16 @@
         dest: /var/www/html/vue/frontend
         remote_src: yes
 
-    - name: Copy default config file to sites enabled
+    - name: Update Todo config file
       template:
         src: default.config
         dest: /etc/nginx/sites-enabled/default.config
-        remote_src: yes
+      notify: Restart Nginx
+
+    - name: Update Nginx Main Config
+      template:
+        src: nginx.conf
+        dest: /etc/nginx/nginx.conf
 
     - name: Start service
       systemd:
