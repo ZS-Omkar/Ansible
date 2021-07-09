@@ -48,13 +48,11 @@
       template:
         src: default.config
         dest: /etc/nginx/sites-enabled/default.config
-        remote_src: yes
 
     - name: Update Nginx Main Config
       template:
         src: nginx.conf
         dest: /etc/nginx/nginx.conf
-      notify: Restart Nginx
 
     - name: Start service
       systemd:
