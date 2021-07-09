@@ -27,8 +27,8 @@
     remote_src: yes
 
 - name: copy the service file
-  copy:
-    src: /root/users/users.service
+  template:
+    src: "users.service"
     dest: /etc/systemd/system/users.service
     remote_src: yes
 
