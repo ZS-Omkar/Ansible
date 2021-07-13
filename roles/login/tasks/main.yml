@@ -13,13 +13,13 @@
 
 - name: Create a directory
   file:
-    path: /root/login
+    path: /root/go/src/login
     state: directory
 
 - name: unzip the downloaded content
   unarchive:
     src: /tmp/login.zip
-    dest: /root/login
+    dest: /root/go/src/login
     remote_src: yes
 
 - name: copy the service file
