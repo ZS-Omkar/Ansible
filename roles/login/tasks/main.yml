@@ -4,6 +4,11 @@
     update_cache: yes
     state: present
 
+- name: Create a directory
+  file:
+    path: /root/go/src/login
+    state: directory
+
 - name: Download Artifacts from Nexus
   get_url:
     url: http://3.216.27.175:8081/repository/login/login-{{APP_VERSION}}.zip
@@ -11,13 +16,8 @@
     username: admin
     password: Omkar@123
 
-- name: Create a directory
-  file:
-    path: /root/go/src/login
-    state: directory
-
 - name: unzip the downloaded content
-  ansible.builtin.unarchive:
+  unarchive:
     src: /tmp/login.zip
     dest: /root/go/src/login
     remote_src: yes
