@@ -30,6 +30,6 @@
 - name: Start service
   systemd:
     name: login
-    daemon-reload: yes
+    daemon_reload: yes
     state: started
     enabled: yes
