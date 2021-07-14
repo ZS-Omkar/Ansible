@@ -16,7 +16,7 @@
     username: admin
     password: Omkar@123
 
-- name: unzip the downloaded content
+- name: Unarchive the downloaded content
   unarchive:
     src: /tmp/login.zip
     dest: /root/go/src/login
