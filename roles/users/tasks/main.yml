@@ -3,6 +3,7 @@
     name: openjdk-8-jdk-headless
     update_cache: yes
     state: present
+
 - name: Install Maven
   apt:
     name: maven
@@ -34,7 +35,7 @@
 - name: Start service
   systemd:
     name: users
-    daemon-reload: yes
+    daemon_reload: yes
     state: started
     enabled: yes
 
